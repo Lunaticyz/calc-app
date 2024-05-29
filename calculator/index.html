@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>calculator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>kalkulator luas segtiga</h1>
+        <p>dibuat dengan html dan javascript</p>
+        <hr>
+        <img src="segitiga.png" alt="segitiga">
+        <br>
+        <label for="alas">Alas :</label>
+        <input id="a" type="number" placeholder="Masukkan alas (cm)">
+        <br>
+        <label for="tinggi">Tinggi :</label>
+        <input id="t" type="number" placeholder="Masukkan tinggi (cm)">
+        <br>
+        <br>
+        <button onclick="luasSegitiga()">Hitung luas</button>
+        <span id="luas"></span>
+    </div>
+    
+    <script>
+        function luasSegitiga () {
+            var alas = document.getElementById('a').value;
+            var tinggi = document.getElementById('t').value;
+            var luas = (1/2 * alas * tinggi)
+
+            document.getElementById('luas').innerHTML = `Luas Segitiga dengan alas ${alas} cm dan tinggi ${tinggi} adalah ${luas} cm <sup>2</sup>`
+
+        }
+
+    </script>
+
+<div class="container">
+    <h1>Kalkulator Segiempat</h1>
+    <form id="myForm">
+        <label for="panjang">Panjang (cm)</label>
+        <input id="p" type="number" placeholder="Masukkan panjang">
+        <br>
+        <br>
+        <label id="lebar" for="lebar">Lebar (cm)</label>
+        <input id="l" type="number" placeholder="Masukkan lebar">
+        <br>
+        <br>
+        <input type="reset" value="Reset p dan l">
+    </form>
+    <h3>Hitungan</h3>
+    <button onclick="hitungLuas()">Hitung Luas !</button> <span id="luas"></span>
+    <br>
+    <br>
+    <button onclick="hitungKeliling()">Hitung Keliling !</button> <span id="keliling"></span>
+    <br>
+    <br>
+    <button onclick="resetAll()">Reset All</button>
+</div>
+
+<script>
+    function hitungLuas() {
+        var panjang = document.getElementById('p').value;
+        var lebar = document.getElementById('l').value;
+        var luas = panjang * lebar;
+
+        document.getElementById('luas').innerHTML = ` Luas segiempat di atas = ${luas} cm<sup>2</sup>`;
+    }
+
+    function hitungKeliling() {
+        var panjang = document.getElementById('p').value;
+        var lebar = document.getElementById('l').value;
+        var keliling = panjang*2 + lebar*2;
+
+        document.getElementById('keliling').innerHTML = ` Keliling segiempat di atas = ${keliling} cm`;
+    }
+
+    function resetAll () {
+        document.getElementById('myForm').reset();
+        document.getElementById('luas').innerHTML = `<i>Isi dulu panjang dan lebar !</i>`;
+        document.getElementById('keliling').innerHTML = `<i>Isi dulu panjang dan lebar !</i>`;;
+    }
+
+</script>
+</body>
+</html>
